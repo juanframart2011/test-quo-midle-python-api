@@ -14,7 +14,7 @@ def login():
     user = User.query.filter_by(email=email, password=password, deleted_at=None).first()
 
     if user:
-        return jsonify({"message": "Login exitoso", "user": user.email})
+        return jsonify({"message": "Login exitoso", "user": user.to_dict()}), 200
     return jsonify({"error": "Credenciales incorrectas"}), 401
 
 # Registro de usuario
